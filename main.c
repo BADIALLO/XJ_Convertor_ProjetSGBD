@@ -12,7 +12,7 @@
 void print_usage();                             // USAGE DE LA COMMANDE
 int validateXML(char *filenamexml);             // valider xml
 int validateJSON(FILE *filename);               // valider json
-void xmlTrace(char *xml);                       // tracer xml
+//void xmlTrace(char *xml);                       // tracer xml
 /* ***********************************************************************************************/
 
 int main(int argc, char *argv[]) {
