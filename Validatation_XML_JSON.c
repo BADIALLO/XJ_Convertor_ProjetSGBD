@@ -1,6 +1,7 @@
 #include <libxml/parser.h>
 #include "JSON_checker.h"
 
+
 int validateJSON (FILE *filename) {
     char ch;
     JSON_checker jc = new_JSON_checker(20);
@@ -19,4 +20,37 @@ int validateJSON (FILE *filename) {
         fprintf(stderr, "JSON_checker_end: syntax error\n");
         exit(1);
     }
+}
+
+
+/* *******************************************************
+ *              VALIDATION DU FICHIER XML
+ *********************************************************
+ */
+
+int validateXML(char *filename) {
+
+    xmlDocPtr doc;    // definir le contexte
+    xmlNodePtr racine;
+    char *filexml = filename;
+    // Ouverture du fichier XML
+    doc = xmlParseFile(filexml);
+    /*On essaie de parser le fichier XML */
+    if (doc == NULL) {
+        fprintf(stderr, "Document XML invalide\n");
+        return EXIT_FAILURE;
+    }
+
+    racine = xmlDocGetRootElement(doc);
+
+    if (racine == NULL) {
+        fprintf(stderr, "Document XML vierge\n");
+        xmlFreeDoc(doc);
+        return EXIT_FAILURE;
+    }
+
+    // Libération de la mémoire
+    xmlFreeDoc(doc);
+
+    return EXIT_SUCCESS;
 }
