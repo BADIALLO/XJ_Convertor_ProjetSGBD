@@ -1,7 +1,10 @@
 #include <libxml/parser.h>
 #include "JSON_checker.h"
 
-
+/* *******************************************************
+ *              VALIDATION DU FICHIER JSON
+ *********************************************************
+ */
 int validateJSON (FILE *filename) {
     char ch;
     JSON_checker jc = new_JSON_checker(20);
