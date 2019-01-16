@@ -1,0 +1,38 @@
+[
+  {
+    "Etudiant": [
+      {
+        "Numero": "B11",
+        "Nom": "DIALLO",
+        "Prenom": "Bocar"
+      },
+      { 
+        "Numero": "R12",
+        "Nom": "BA",
+        "Prenom": "Ramata" 
+      },
+      {
+        "Numero": "R45",
+        "Nom": "SECK",
+        "Prenom": "Moussa"
+      }
+    ],
+    "relations": {
+      "associations": [
+        {
+          "nomAutreEntite": "Departement",
+          "nomAssoc": "Appartenir"
+        }
+      ]
+    }
+  },
+  {
+    "Departement": [
+      {
+        "Numero Dept": "100",
+        "Nom": "Nouveau Batiment",
+        "Annee": "2001" 
+      }
+    ]
+  }
+]
