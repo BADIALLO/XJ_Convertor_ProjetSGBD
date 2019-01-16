@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemaea>
+  <entite id="e1" nom="E1">
+      <proprietes>
+          <propriete nom="P1" type="entier" cardMin="0" cardMax="n"/>
+      </proprietes>
+  </entite>
+  <entite id="e2" nom="E2">
+      <proprietes>
+          <propriete nom="P2" type="entier"/>
+          <propriete nom="P3" type="chaine"/>
+          <propriete nom="P4" type="chaine"/>
+          <propriete nom="P5" type="chaine" cardMin="0" cardMax="n"/>
+      </proprietes>
+  </entite>
+  <entite id="e3" nom="E3">
+      <proprietes>
+          <propriete nom="P6" type="chaine"/>
+          <propriete nom="P7" type="chaine"/>
+          <propriete nom="P8" type="chaine"/>
+          <propriete nom="P9" type="chaine"/>
+      </proprietes>
+  </entite>
+  <relation nom="R1">
+      <proprietes>
+           <propriete nom="PR1" type="entier" cardMin="1" cardMax="n"/>
+           <propriete nom="PR2" type="chaine" cardMin="0" cardMax="n"/>           
+      </proprietes>
+  </relation>
+  <relation nom="R2">
+      <proprietes>
+           <propriete nom="PR3" cardMin="1" cardMax="1" />
+           <propriete nom="PR4" cardMin="0" cardMax="n" />
+      </proprietes>
+  </relation>
+  <relation nom="R3">
+      <proprietes>
+           <propriete nom="PR5" cardMin="1" cardMax="1" />
+           <propriete nom="PR6" cardMin="0" cardMax="n" />
+      </proprietes>
+  </relation>
+</schemaea>
