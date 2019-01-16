@@ -38,3 +38,28 @@ def validateXML(filename) :
     except Exception as erreur:
         print ("%s n\'est pas valide' %s" % (filename, erreur))
         return False
+      
+      
+      
+""" 
+****************************************************************************************************
+                            VALIDATION DU FICHIER JSON
+****************************************************************************************************
+    De meme que le XML, On va juste verifier si le document JSON adhère à                        
+    toutes les règles de syntaxe de base pour les documents JSON.
+    
+    la fonction validateJSON analyse le document JSON en entier
+*****************************************************************************************************
+"""
+def validateJSON(filenameJSON):
+    try:
+        file = open(filenameJSON)
+        data = file.read()
+        json.loads(data)
+        return True
+    except ValueError as erreur:
+        print ("%s n\'est pas valide %s"%(filenameJSON ,erreur))
+        return False
+
+#a = validateJSON(sys.argv[1])
+#print(a)
