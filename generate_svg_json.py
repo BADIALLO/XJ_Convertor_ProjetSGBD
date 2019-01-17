@@ -10,6 +10,9 @@ elif XJ_Convertor.hflag == 1 and XJ_Convertor.json == 1:
     response = requests.get(url = XJ_Convertor.url)
     myJsonData = response.json() 
 
+if(XJ_Convertor.json == 1 and XJ_Convertor.tflag == 1) :
+    print("La liste des entites et les relations : ")
+    print(myJsonData)
 #myJsonData = extractionJSON.parseJSON(XJ_Convertor.fichierInput)
 # Recuperons la liste des entites, en appelant la fonction getEntites() dans extractionJSON
 listEntites = extractionJSON.getEntites(myJsonData)
