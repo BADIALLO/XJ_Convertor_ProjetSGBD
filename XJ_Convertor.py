@@ -1,7 +1,5 @@
-
 import sys,os,getopt
 import validation
-
 
 def usage() :
     print("""\nUTILISATION : XJ_Convertor [-i xml/json] [-t ][-h url_FluxHTTP] [-f FichierInput] -o nomFichier.svg\n
@@ -22,7 +20,6 @@ def exemple () :
 fichierInput  = ''      #variable pour stocker le nom du fichier en entree
 fichierOutput = ''      #variable pour stocker le nom fichier en sortie
 formatFich    = ''      #le format du fichier
-
 """ Pour prendre en compte le format saisi l'utilisateur """
 xml           = 0     
 json          = 0
@@ -69,25 +66,29 @@ if (iflag == 1) :
             json = 1
             xml  = 0
         if(fflag == 1 or hflag == 1) :
-            if(oflag == 1) :
-
-                if(xml == 1) :
-                    if(validation.validateXML(fichierInput)) :
-                        if(tflag == 1) :
-                            print("La listes des entites et associations : \n")
-                            #TraceXML(fichierInput)
-                        print("Generation du fichier svg ...")
-
-                elif(json == 1) :
-                    if (validation.validateJSON(fichierInput)) :
-                        if(tflag == 1) :
-                            print("La listes des entites et associations : \n")
-
-                        print("Generation du fichier svg ...")
-            else :
-                print("Veuillez specifier l'option -o pour la generation du fichier de sortie svg\n")
-                exemple()
+            if not(os.path.exists(fichierInput)):
+                print("Verifier le nom du fichier ...!")
                 sys.exit(2)
+            else :
+                if(oflag == 1) :
+                    if(xml == 1) :
+                        if(validation.validateXML(fichierInput)) :
+                            import generate_svg_xml
+                            if(tflag == 1) :
+                                print("")
+                                #print(extractionXML.getEntites(fichierInput))
+                                
+                    elif(json == 1) :
+                        if (validation.validateJSON(fichierInput)) :
+                            import generate_svg_json
+                            if(tflag == 1) :
+                                #print("La listes des entites et associations : \n")
+                                f=1
+
+                else :
+                    print("Veuillez specifier l'option -o pour la generation du fichier de sortie svg\n")
+                    exemple()
+                    sys.exit(2)
         else :
             print("Veuillez specifier l'option -f pour un <fichier> ou l'option -h pour un <flux http> \n")
             exemple()
