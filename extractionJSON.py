@@ -5,29 +5,25 @@ def parseJSON(filePath):
     j = json.loads(data)
     return j
 
-
-data = parseJSON(sys.argv[1])
- #print(data)
-
 listEntites = []
-# Recuperation de la liste des entités
 
-for i in range(len(data)):
-    keys = data[i].keys()
-    key = next(iter(keys))
-    listEntites.append(key)
-  #  print(key)
+# Recuperation de la liste des entités
+def getEntites(data) :
+    for i in range(len(data)) :
+        keys = data[i].keys()
+        key = next(iter(keys))
+        listEntites.append(key)
+    return listEntites
+#print("La liste des entites et leurs attributs : ")
 
 for i in range(len(listEntites)):
     listAttributs = []
     listAssocs = []
-
-   # print('\t' + listEntites[i])
-
-    # Recuperation des noms des attributs que l'on enregistre dans la variable "listAttributs"
+    #print('\t' + listEntites[i])
+    # Recuperons les nom des attributs et on les stockes dans listAttributs
     nbAttributs = len(data[i][listEntites[i]][0].keys())
     
     for key in data[i][listEntites[i]][0].keys():
         listAttributs.append(key)
-    #    print('\t\t' + key)
+        #print('\t\t' + key)
 
