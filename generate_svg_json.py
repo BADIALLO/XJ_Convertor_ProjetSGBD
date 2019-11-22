@@ -41,9 +41,14 @@ for i in range(len(listEntites)):
                                            fill = "#B0C4DE"))
         entityCoords = {
             "nomEntite": listEntites[i],
-            "coordX": 10,
+            "coordX": 10, # a ChaNGER
             "coordY": i*(i+150) + 10
         }
+        """
+            la position de x doit-etre dynamique et aussi celle de y en fonction
+            des nombres d'entites.
+            
+        """
         coordsEntiteList.append(entityCoords)          
         # Rectangle contenant le nom de l'entite
         svg_document.add(svg_document.rect(insert = (40, i*(i+150) + 10),
@@ -82,7 +87,7 @@ for i in range(len(listEntites)):
 
         entityCoords = {
             "nomEntite": listEntites[i],
-            "coordX": 400,
+            "coordX": 400, # doit etre dynamique
             "coordY": (i - 1)*150 + 10
         }
         coordsEntiteList.append(entityCoords)
